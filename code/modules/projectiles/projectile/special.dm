@@ -22,14 +22,14 @@
 	name =".75 bolt" //.75, astartes sized bolters or boltpistols
 	icon_state= "bolter"
 	damage = 75
-	armor_penetration = 44 //this is totally not cause its a .75
+	armor_penetration = 36 //this is totally not cause its a .75
 	check_armour = "bullet"
 
 /obj/item/projectile/bullet/bolterrifle/astartes
 	name =".95 bolt"  // Will make kraken penetrator variants later.
 	icon_state= "bolter"
 	damage = 89
-	armor_penetration = 48
+	armor_penetration = 40
 	check_armour = "bullet"
 
 /obj/item/projectile/bullet/bpistol
@@ -37,31 +37,31 @@
 	icon_state= "bolter"
 	damage = 68
 	check_armour = "bullet"
-	armor_penetration = 44
+	armor_penetration = 34
 
 // SPECIAL BOLT ROUNDS
 
 /obj/item/projectile/bullet/bpistol/kp
 	fire_sound = 'sound/effects/explosion1.ogg'
 	damage = 73
-	armor_penetration = 48
+	armor_penetration = 39
 	penetrating = 2
 
 /obj/item/projectile/bullet/bolt/kp
 	fire_sound = 'sound/effects/explosion1.ogg'
 	damage = 83
-	armor_penetration = 48
+	armor_penetration = 41
 	penetrating = 2
 
 /obj/item/projectile/bullet/bpistol/ms // This is .75 Bolt Pistol Round
 	fire_sound = 'sound/effects/explosion1.ogg'
 	damage = 79
-	armor_penetration = 44
+	armor_penetration = 35
 
 /obj/item/projectile/bullet/bolt/ms
 	fire_sound = 'sound/effects/explosion1.ogg'
 	damage = 89
-	armor_penetration = 44
+	armor_penetration = 37
 
 /obj/item/projectile/meteor
 	name = "meteor"
@@ -144,7 +144,7 @@
 	name = "fire"
 	icon_state = "flame"
 	damage = 22
-	armor_penetration = 44
+	armor_penetration = 35
 	range =  5//Very short range.
 	damage_type = BURN
 	mob_hit_sound = list('sound/effects/fire.ogg')
@@ -207,7 +207,7 @@
 				var/obj/item/organ/external/affecting = H.get_organ(pick("l_foot", "r_foot", "l_leg", "r_leg"))
 				if (affecting.status & ORGAN_ROBOT)
 					return
-				if (affecting.take_damage(49, FALSE))
+				if (affecting.take_damage(45, FALSE))
 					H.UpdateDamageIcon()
 				H.updatehealth()
 				to_chat(H, "<span class = 'red'><b>Your [affecting.name] gets bitten by \the [src]!</b></span>")
@@ -216,7 +216,7 @@
 				var/obj/item/organ/external/affecting = H.get_organ(pick("l_foot", "r_foot", "l_leg", "r_leg"))
 				if (affecting.status & ORGAN_ROBOT)
 					return
-				if (affecting.take_damage(59, FALSE))
+				if (affecting.take_damage(50, FALSE))
 					H.UpdateDamageIcon()
 				H.updatehealth()
 				to_chat(H, "<span class = 'red'><b>Your [affecting.name] gets chomped by \the [src]!</b></span>")
@@ -242,6 +242,14 @@
 				return TRUE
 	return ..()
 
+
+/obj/necrofleshmouth/blood
+	name = "infester mouth"
+	icon = 'icons/map_project/eldritch/Flesh_Ground.dmi'
+	icon_state = "flesh_floor-4"
+	anchored = 1
+	mouse_opacity = 0
+	layer = BELOW_OBJ_LAYER
 // FLOWER
 
 /// FLAMER FIRE
@@ -509,7 +517,7 @@
 	dispersion = 0.0
 	animate_movement = 1
 	penetrating = 2 //10 was a bit much
-	armor_penetration = 44 //this shit tears down individual atoms.. what do you expect?
+	armor_penetration = 40 //this shit tears down individual atoms.. what do you expect?
 
 /obj/item/projectile/energy/meltagun
 	name = "Meltagun beam"
@@ -522,7 +530,7 @@
 	range =  5
 	incinerate = 1
 	penetrating = 2
-	armor_penetration = 50
+	armor_penetration = 42
 	var/flash_range = 1
 	var/brightness = 10
 	var/light_colour = "#ffffff"
